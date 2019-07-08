@@ -5,6 +5,8 @@ It exposes the WSGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/
+
+is used to help your Django application communicate with the web server. You can treat this as boilerplate.
 """
 
 import os
