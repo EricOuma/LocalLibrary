@@ -1,7 +1,10 @@
 from django.db import models
 from django.urls import reverse # Used to generate URLs by reversing the URL patterns
+from django.contrib.auth.models import User
 
 import uuid # Required for unique book instances
+from datetime import date
+
 # Create your models here.
 
 class Genre(models.Model):
@@ -49,6 +52,14 @@ class BookInstance(models.Model):
     book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True) 
     imprint = models.CharField(max_length=200)
     due_back = models.DateField(null=True, blank=True)
+    borrower = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+
+    @property
+    def is_overdue(self):
+        'first verify whether due_back is empty before making comparison. An empty due_back field would cause Django to throw an error instead of showing the page: empty values are not comparable.'
+        if self.due_back and date.today() > self.due_back:
+            return True
+        return False
 
     LOAN_STATUS = (
         ('m', 'Maintenance'),
