@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'locallibrary.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+#  Remember to grant privileges to the user for the test_db
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -85,6 +85,9 @@ DATABASES = {
         'PASSWORD': 'Catalog_2019',
         'HOST': '',
         'PORT': '',
+        'TEST': {
+            'NAME': 'test_catalog',
+        },
     }
 }
 
