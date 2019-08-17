@@ -56,6 +56,7 @@ class BookDetailView(generic.DetailView):
 
 class AuthorListView(generic.ListView):
     model = Author
+    paginate_by = 10
     template_name = 'catalog/authors/authors_list.html'
 
 class AuthorDetailView(generic.DetailView):
@@ -102,7 +103,7 @@ def renew_book_librarian(request, pk):
             book_instance.save()
 
             # redirect to a new URL:
-            return HttpResponseRedirect(reverse('all-borrowed') )
+            return HttpResponseRedirect(reverse('catalog') )
 
     # If this is a GET (or any other method) create the default form.
     else:
