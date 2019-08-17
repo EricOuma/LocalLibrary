@@ -30,7 +30,8 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
     'http://27e9d235.ngrok.io/',
-    '127.0.0.1'
+    '127.0.0.1',
+    'floating-inlet-76497.herokuapp.com'
 ]
 
 
