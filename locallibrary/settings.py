@@ -29,9 +29,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = [
-    'http://27e9d235.ngrok.io/',
+    'https://ericlibrary.herokuapp.com/',
     '127.0.0.1',
-    'floating-inlet-76497.herokuapp.com'
 ]
 
 
